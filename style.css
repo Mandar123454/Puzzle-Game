@@ -1,0 +1,237 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.shiny-title {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  background-image: linear-gradient(90deg, #ff8a00, #e52e71, #9d50bb, #00c9ff, #ff8a00);
+  background-size: 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shiny 3s linear infinite;
+}
+
+@keyframes shiny {
+  0% { background-position: 0%; }
+  100% { background-position: 100%; }
+}
+
+.hint-message {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.puzzle-container {
+  width: 350px;
+  height: 350px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 5px;
+  margin: 20px auto 80px;
+}
+
+.puzzle-tile {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.puzzle-tile:nth-child(1) { background-color: #ff6f61; }
+.puzzle-tile:nth-child(2) { background-color: #ffcc5c; }
+.puzzle-tile:nth-child(3) { background-color: #88d8b0; }
+.puzzle-tile:nth-child(4) { background-color: #4ecdc4; }
+.puzzle-tile:nth-child(5) { background-color: #2ba80c; }
+.puzzle-tile:nth-child(6) { background-color: #457b9d; }
+.puzzle-tile:nth-child(7) { background-color: #6d597a; }
+.puzzle-tile:nth-child(8) { background-color: #b56576; }
+.puzzle-tile:nth-child(9) { background-color: #ff8c94; }
+
+.puzzle-tile.empty {
+  background-color: #fff;
+  cursor: default;
+}
+
+.puzzle-tile.hint {
+  border: 3px dashed #ffeb3b;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0.5; }
+}
+
+button:hover {
+  background-color: #7d5a86;
+}
+
+footer {
+  position: fixed;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Shuffle Button Styling */
+#shuffleButton {
+  font-size: 1.6rem;
+  padding: 10px 20px;
+  background-color: #6a4c93;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+#shuffleButton:hover {
+  background-color: #7d5a86;
+}
+
+.win-message {
+  font-size: 1.5rem;
+  margin-top: 20px;
+  color: green;
+  display: none;
+}
+
+.win-message.hidden {
+  display: none;
+}
+
+/* Glowing particle background */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: -1;
+  background: radial-gradient(circle at 30% 30%, rgba(0, 255, 255, 0.1), transparent 40%),
+              radial-gradient(circle at 70% 70%, rgba(255, 0, 255, 0.1), transparent 40%),
+              linear-gradient(120deg, #0f0c29, #302b63, #24243e);
+  background-size: 200% 200%;
+  animation: backgroundAnimation 20s ease infinite;
+  filter: blur(0.5px);
+}
+
+@keyframes backgroundAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animated-circles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  animation: float 20s linear infinite;
+}
+
+.circle:nth-child(1) {
+  width: 200px; height: 200px;
+  top: 10%; left: 20%;
+  animation-duration: 25s;
+}
+.circle:nth-child(2) {
+  width: 300px; height: 300px;
+  top: 60%; left: 70%;
+  animation-duration: 35s;
+}
+.circle:nth-child(3) {
+  width: 150px; height: 150px;
+  top: 30%; left: 80%;
+  animation-duration: 30s;
+}
+
+@keyframes float {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-50px) rotate(180deg); }
+  100% { transform: translateY(0) rotate(360deg); }
+}
+
+/* Animated "Powered by Mandar Kajbaje" */
+/* Left-side animated text */
+.powered-by {
+  position: absolute;
+  top: 40%;
+  left: 40px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 40px;
+  font-family: 'Segoe UI', sans-serif;
+  color: #00ffee;
+  font-weight: bold;
+  z-index: 10;
+}
+
+.powered-by .line {
+  display: flex;
+  gap: 3px; /* Space between letters */
+}
+
+.powered-by span {
+  opacity: 0;
+  animation: fadeLoop 2s ease-in-out infinite;
+}
+
+/* Looping animation for each span with delay */
+.powered-by span:nth-child(1)  { animation-delay: 0s; }
+.powered-by span:nth-child(2)  { animation-delay: 0.1s; }
+.powered-by span:nth-child(3)  { animation-delay: 0.2s; }
+.powered-by span:nth-child(4)  { animation-delay: 0.3s; }
+.powered-by span:nth-child(5)  { animation-delay: 0.4s; }
+.powered-by span:nth-child(6)  { animation-delay: 0.5s; }
+.powered-by span:nth-child(7)  { animation-delay: 0.6s; }
+.powered-by span:nth-child(8)  { animation-delay: 0.7s; }
+.powered-by span:nth-child(9)  { animation-delay: 0.8s; }
+.powered-by span:nth-child(10) { animation-delay: 0.9s; }
+.powered-by span:nth-child(11) { animation-delay: 1.0s; }
+.powered-by span:nth-child(12) { animation-delay: 1.1s; }
+.powered-by span:nth-child(13) { animation-delay: 1.2s; }
+.powered-by span:nth-child(14) { animation-delay: 1.3s; }
+.powered-by span:nth-child(15) { animation-delay: 1.4s; }
+.powered-by span:nth-child(16) { animation-delay: 1.5s; }
+.powered-by span:nth-child(17) { animation-delay: 1.6s; }
+.powered-by span:nth-child(18) { animation-delay: 1.7s; }
+.powered-by span:nth-child(19) { animation-delay: 1.8s; }
+.powered-by span:nth-child(20) { animation-delay: 1.9s; }
+.powered-by span:nth-child(21) { animation-delay: 2.0s; }
+
+@keyframes fadeLoop {
+  0%, 100% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

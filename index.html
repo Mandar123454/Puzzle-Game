@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Splash Screen</title>
+  <link rel="stylesheet" href="Logo.css">
+</head>
+<body>
+
+  <div class="left-animation"></div> 
+
+  <!-- Splash Screen with Logo and Motivational Text -->
+  <div id="splash-screen" class="splash-screen">
+    <div class="logo-container">
+      <img src="MK Logo.png" alt="MK Logo" class="logo">
+    </div>
+  </div>  
+  <div class="right-animation"></div>
+
+  <script>
+    // Redirect to Dashboard after 5 seconds
+    setTimeout(function() {
+      window.location.href = "Game.html";  // Replace with actual dashboard URL
+    }, 5000);  // 5000ms = 5 seconds
+  </script>
+
+</body>
+</html>
