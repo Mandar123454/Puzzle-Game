@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Splash Screen</title>
-  <link rel="stylesheet" href="Logo.css">
+  <title>Sliding Puzzle Game</title>
+  <link rel="stylesheet" href="style.css">
   <link rel="manifest" href="/manifest.json" />
 <meta name="theme-color" content="#000000" />
 <script>
@@ -17,22 +17,29 @@
 </head>
 <body>
 
-  <div class="left-animation"></div> 
-
-  <!-- Splash Screen with Logo and Motivational Text -->
-  <div id="splash-screen" class="splash-screen">
-    <div class="logo-container">
-      <img src="MK Logo.png" alt="MK Logo" class="logo">
+    <div class="animated-circles">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
     </div>
-  </div>  
-  <div class="right-animation"></div>
 
-  <script>
-    // Redirect to Dashboard after 5 seconds
-    setTimeout(function() {
-      window.location.href = "Game.html";  // Replace with actual dashboard URL
-    }, 5000);  // 5000ms = 5 seconds
-  </script>
+  <h1 class="shiny-title">Sliding Puzzle Game</h1>
+  <div class="puzzle-container" id="puzzleContainer"></div>
+  <button id="shuffleButton">Shuffle</button>
+  <div class="win-message hidden" id="winMessage">Congratulations! You solved the puzzle!</div>
 
+
+  <div class="powered-by">
+  <div class="line">
+    <span>P</span><span>o</span><span>w</span><span>e</span><span>r</span><span>e</span><span>d</span> 
+    <span>b</span><span>y</span>
+  </div>
+  <div class="line">
+    <span>M</span><span>a</span><span>n</span><span>d</span><span>a</span><span>r</span> 
+    <span>K</span><span>a</span><span>j</span><span>b</span><span>a</span><span>j</span><span>e</span>
+  </div>
+</div>
+
+  <script src="script.js"></script>
 </body>
 </html>
